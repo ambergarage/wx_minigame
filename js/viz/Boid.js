@@ -2,7 +2,6 @@
 // Using https://github.com/OwenMcNaughton/Boids.js/tree/master by Owen McNaughton
 //
 import * as THREE from "../three.js"
-let events = GameGlobal.events
 
 var sepFac = 1;
 var cohFac = 0.7;
@@ -292,3 +291,5 @@ Boid.prototype.disperse = function (target) {
     target.limit(maxForce * 10);
     return target;
 };
+
+module.exports = Boid

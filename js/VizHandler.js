@@ -1,7 +1,9 @@
 import * as THREE from "./three.js"
-import Events from "./minivents.min.js"
-
-let events = GameGlobal.events
+import OrbitControls from "./OrbitControls.js"
+import Shards from "./viz/Shards.js"
+import Mecha from "./viz/Mecha.js"
+import Birds from "./viz/Birds.js"
+import Forest from "./viz/Forest.js"
 
 var VizHandler = function () {
 
@@ -39,11 +41,11 @@ var VizHandler = function () {
         if (!id)
             id = 1
 
-        events.on("update", update);
+        GameGlobal.events.on("update", update);
         // var container = document.getElementById('viz')
         //document.body.appendChild(container);
 
-        container = document.createElement('div');
+        var container = document.createElement('div');
         document.body.appendChild(container);
         //RENDERER
 
@@ -66,7 +68,7 @@ var VizHandler = function () {
         //scene.add(camera);
 
         //controls = new THREE.TrackballControls(camera);
-        controls = new THREE.OrbitControls(camera);
+        controls = new OrbitControls(camera);
         controls.target.set(0, 0, 0);
         //controls.enabled = false;
         controls.autoRotate = true;
@@ -162,9 +164,9 @@ var VizHandler = function () {
         //var helper = new THREE.CameraHelper(directionalLight.shadow.camera);
         //scene.add(helper);
 
-        activeViz = [Shards, Mecha, Birds, Forest]//MechaMerged,, MechaMerged,//Shards, Titles,  Mecha, SequencerVisual, Forest
+        var activeViz = [Shards, Mecha, Birds, Forest]//MechaMerged,, MechaMerged,//Shards, Titles,  Mecha, SequencerVisual, Forest
 
-        activeVizCount = activeViz.length;
+        var activeVizCount = activeViz.length;
         for (var j = 0; j < activeVizCount; j++) {
             activeViz[j].init(mode);
         }

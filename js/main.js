@@ -1,10 +1,5 @@
 import * as THREE from "./three.js"
-import OrbitControls from "./OrbitControls.js"
 import "./perlin.js"
-import Events from "./minivents.min.js"
-GameGlobal.events = new Events()
-let events = GameGlobal.events
-
 import "./Vector.js"
 import "./TweenMax.min.js"
 import "./seedrandom.js"
@@ -67,7 +62,7 @@ export default class Main {
 
     function loop() {
       requestAnimationFrame(loop, canvas);
-      events.emit("update");
+      GameGlobal.events.emit("update");
     }
 
     init();

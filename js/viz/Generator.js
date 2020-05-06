@@ -1,5 +1,4 @@
 import * as THREE from "../three.js"
-let events = GameGlobal.events
 
 var Generator = function () {
     var number;
@@ -441,3 +440,5 @@ var Generator = function () {
     };
 
 }();
+
+module.exports = Generator

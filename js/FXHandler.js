@@ -1,7 +1,4 @@
 import * as THREE from "./three.js"
-import Events from "./minivents.min.js"
-
-let events = GameGlobal.events
 
 var FXHandler = function () {
     var shaderTime = 0;
@@ -38,8 +35,8 @@ var FXHandler = function () {
         camera = VizHandler.getCamera();
 
         //EVENT HANDLERS
-        events.on("update", update);
-        events.on("onBeat", onBeat);
+        GameGlobal.events.on("update", update);
+        GameGlobal.events.on("onBeat", onBeat);
 
         setup()
         initPostprocessing()

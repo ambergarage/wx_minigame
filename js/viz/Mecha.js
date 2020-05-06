@@ -1,5 +1,5 @@
 import * as THREE from "../three.js"
-let events = GameGlobal.events
+import VizHandler from "../VizHandler.js"
 
 var Mecha = function () {
     var scene;
@@ -41,7 +41,7 @@ var Mecha = function () {
     function init() {
 
         //init event listeners
-        events.on("update", update);
+        GameGlobal.events.on("update", update);
         scene = VizHandler.getScene()
 
         initBones();
@@ -646,3 +646,5 @@ var Mecha = function () {
 
 }
 ();
+
+module.exports = Mecha

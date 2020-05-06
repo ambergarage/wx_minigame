@@ -1,5 +1,4 @@
 import * as THREE from "../three.js"
-let events = GameGlobal.events
 
 var Birds = function () {
 
@@ -14,7 +13,7 @@ var Birds = function () {
     function init() {
 
         //init event listeners
-        events.on("update", update);
+        GameGlobal.events.on("update", update);
 
         scene = VizHandler.getScene();
         renderer = VizHandler.getRenderer();
@@ -317,4 +316,4 @@ var Birds = function () {
 }
 ();
 
-
+module.exports = Birds

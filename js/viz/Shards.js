@@ -1,5 +1,4 @@
 import * as THREE from "../three.js"
-let events = GameGlobal.events
 
 var Shards = function () {
     var groupHolder;
@@ -24,8 +23,8 @@ var Shards = function () {
     function init() {
 
         //init event listeners
-        events.on("update", update);
-        events.on("onBeat", onBeat);
+        GameGlobal.events.on("update", update);
+        GameGlobal.events.on("onBeat", onBeat);
 
         var shininess = 50, specular = 0xffffff, bumpScale = .055, shading = THREE.SmoothShading;
         //var reflectionCube = Assets.getCubeMap(12)
@@ -306,3 +305,5 @@ var Shards = function () {
 
 }
 ();
+
+module.exports = Shards

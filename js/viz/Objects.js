@@ -1,5 +1,4 @@
 import * as THREE from "../three.js"
-let events = GameGlobal.events
 
 var shading = THREE.FlatShading;//THREE.SmoothShading//
 var shininess = 50;
@@ -580,3 +579,4 @@ function componentToHex(c) {
     var hex = c.toString(16);
     return hex.length == 1 ? "0" + hex : hex;
 }
+

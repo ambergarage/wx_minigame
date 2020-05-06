@@ -1,5 +1,4 @@
 import * as THREE from "../three.js"
-let events = GameGlobal.events
 
 var Forest = function () {
 
@@ -20,8 +19,8 @@ var Forest = function () {
     function init() {
 
         //init event listeners
-        events.on("update", update);
-        events.on("onBeat", onBeat);
+        GameGlobal.events.on("update", update);
+        GameGlobal.events.on("onBeat", onBeat);
 
         scene = VizHandler.getScene();
     }
@@ -313,3 +312,5 @@ var Forest = function () {
 
 }
 ();
+
+module.exports = Forest
