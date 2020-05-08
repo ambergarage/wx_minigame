@@ -11,7 +11,6 @@ let ctx = canvas.getContext('webgl')
 
 var isMobile = {any: true, phone: true};
 
-
 var Shards = function () {
     var groupHolder;
     var multiMaterial
@@ -2064,11 +2063,11 @@ var VizHandler = function () {
     var mode = 1;
 
     var oceanAudio = new Audio() 
-    oceanAudio.loop = true
-    oceanAudio.src  = 'https://demo.marpi.pl/ocean_desert/music/ocean.mp3'
+   oceanAudio.loop = true
+   oceanAudio.src  = 'https://demo.marpi.pl/ocean_desert/music/ocean.mp3'
     var desertAudio = new Audio() 
-    desertAudio.loop = true
-    desertAudio.src  = 'https://demo.marpi.pl/ocean_desert/music/desert.mp3'
+   desertAudio.loop = true
+   desertAudio.src  = 'https://demo.marpi.pl/ocean_desert/music/desert.mp3'
 
     var fog;
     var transitioning = false;
@@ -2086,20 +2085,30 @@ var VizHandler = function () {
         // var container = document.getElementById('viz')
         //document.body.appendChild(container);
 
-        var container = document.createElement('div');
-        document.body.appendChild(container);
+        // var container = document.createElement('div');
+
+        // document.body.appendChild(container);
+
+//         var ctx2 = canvas.getContext('2d');
+// //        ctx2.canvas.width = window.innerWidth;
+//  //       ctx2.canvas.height = window.innerHeight;
+//         ctx2.fill
+//         ctx2.fillStyle = '#FFF';
+      //  ctx2.fillRect(0, 0, ctx2.canvas.width, ctx2.canvas.height);
+
         //RENDERER
 
-        renderer = new THREE.WebGLRenderer({canvas: canvas, context: ctx, antialias: true});
-        //if (isMobile.any)
-        //    renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer = new THREE.WebGLRenderer({canvas: canvas, context: ctx, alpha: true, antialias: true});
+        if (isMobile.any)
+           renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight );
+  
         renderer.setClearColor(0xFFFFFF)
         renderer.shadowMap.enabled = true;
         renderer.shadowMap.type = THREE.PCFSoftShadowMap //BasicShadowMap // default THREE.PCFShadowMap
-        document.body.appendChild(renderer.domElement);
+        //document.body.appendChild(renderer.domElement);
         //renderer.sortObjects = false;
-        container.appendChild(renderer.domElement);
+        //container.appendChild(renderer.domElement);
         scene = new THREE.Scene();
         //3D SCENE
         //camera = new THREE.PerspectiveCamera( 70, 800 / 600, 50, 30000 );
@@ -2175,6 +2184,13 @@ var VizHandler = function () {
             //scene.add(helper)
 
         }
+
+        //DEBUG purpose
+        // var geometry = new THREE.BoxGeometry(100,100,100);
+        // var material = new THREE.MeshBasicMaterial( { color: 0xff2111 } );
+        // var cube = new THREE.Mesh( geometry, material );
+        // scene.add( cube );
+
         if (usePointLights) {
             var geom = new THREE.BoxGeometry(1, 1, 1)
             for (var i = 0; i < 2; i++) {

@@ -3,7 +3,7 @@ const location = {
 
   reload() {
   },
-
+  hash: '#',
   replace(href) {
     this.href = href
   },
