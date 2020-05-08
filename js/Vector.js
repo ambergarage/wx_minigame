@@ -57,3 +57,5 @@ Vector.prototype.mulScalar = function(scalar) {
     this.y *= scalar;
     this.z *= scalar;
 };
+
+module.exports = Vector

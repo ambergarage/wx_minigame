@@ -2,6 +2,7 @@
 // Using https://github.com/OwenMcNaughton/Boids.js/tree/master by Owen McNaughton
 //
 import * as THREE from "../three.js"
+import Vector from "../Vector.js"
 
 var sepFac = 1;
 var cohFac = 0.7;
@@ -46,7 +47,7 @@ Boid.prototype.update = function (boids, target, sharks) {
 
     var sep = this.separation(boids);
     var ali = this.alignment(boids);
-    var sharkSep = this.sharkSeparation(sharks);
+    var sharkSep = this.sharkSeparation(boids, sharks);
     var coh = this.cohesion(boids);
 
     if (this.shark) {
@@ -204,7 +205,7 @@ Boid.prototype.separation = function (boids) {
     return sum;
 };
 
-Boid.prototype.sharkSeparation = function (sharks) {
+Boid.prototype.sharkSeparation = function (boids, sharks) {
     var count = 0;
     var sum = new Vector(0, 0, 0);
 

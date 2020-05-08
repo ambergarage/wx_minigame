@@ -1,4 +1,5 @@
 import * as THREE from "./three.js"
+import VizHandler from "./VizHandler.js"
 
 var FXHandler = function () {
     var shaderTime = 0;
